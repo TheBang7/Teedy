@@ -74,6 +74,26 @@ public class TestFileUtil {
         Assert.assertTrue(content.contains("All human beings are born free and equal in dignity and rights."));
     }
 
+    // @Test
+    // public void extractContentPlainTextTest() throws Exception {
+    //     Path path = Paths.get(ClassLoader.getSystemResource("file/document.txt").toURI());
+    //     FormatHandler formatHandler = FormatHandlerUtil.find(MimeTypeUtil.guessMimeType(path, "document.txt"));
+    //     Assert.assertNotNull(formatHandler);
+    //     Assert.assertTrue(formatHandler instanceof TxtFormatHandler);
+    //     String content = formatHandler.extractContent("eng", path);
+    //     Assert.assertTrue(content.contains("Sample text content."));
+    // }
+
+    @Test
+    public void extractContentNonExistentFileTest() {
+        Path path = Paths.get("non_existent_file.odt");
+        Assert.assertThrows(Exception.class, () -> {
+            FormatHandler formatHandler = FormatHandlerUtil.find(MimeTypeUtil.guessMimeType(path, "non_existent_file.odt"));
+            formatHandler.extractContent("eng", path);
+    });
+    }
+
+
     @Test
     public void convertToPdfTest() throws Exception {
         try (InputStream inputStream0 = Resources.getResource("file/apollo_landscape.jpg").openStream();
