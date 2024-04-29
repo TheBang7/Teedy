@@ -96,6 +96,42 @@
   <build>
     <plugins>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <source>1.8</source> <!-- 或者根据你的Java版本调整 -->
+          <target>1.8</target> <!-- 或者根据你的Java版本调整 -->
+        </configuration>
+      </plugin>
+
+      <!-- Maven Jar Plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.2.0</version>
+      </plugin>
+
+      <!-- Maven War Plugin (如果你的项目是Web应用) -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.3.1</version>
+      </plugin>
+
+      <!-- Maven PMD Plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <version>3.14.0</version>
+        <configuration>
+          <rulesets>
+            <ruleset>/rulesets/java/basic.xml</ruleset>
+            <!-- 添加更多的规则集文件，按需配置 -->
+          </rulesets>
+        </configuration>
+      </plugin>
+      <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
         <version>0.8.9</version>
