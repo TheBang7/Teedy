@@ -138,7 +138,7 @@
           <!-- printFailingErrors is pretty useful -->
           <printFailingErrors>true</printFailingErrors>
           <rulesets>
-            <ruleset>/mnt/d/my_Project/gitHub/Teedy/practice-answer.xml</ruleset>
+            <ruleset>practice-answer.xml</ruleset>
           </rulesets>
         </configuration>
         <executions>

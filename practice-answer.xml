@@ -1,0 +1,16 @@
+<ruleset name="Custom Rules"
+         xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
+
+    <description>
+        My custom rules
+    </description>
+
+    <rule ref="category/java/errorprone.xml/EmptyCatchBlock" />//1监测空的异常捕获块，即捕获异常却不做任何处理的情况
+    <rule ref="category/java/design.xml/NcssCount" />//1,监测非注释代码行数,即代码中的非空白非注释行的数量
+    <rule ref="category/java/design.xml/CyclomaticComplexity" />//2监测程序的圈复杂度,即代码中的决策路径数,用于衡量代码复杂度
+    <rule ref="category/java/design.xml/CognitiveComplexity" />//3 监测认知复杂度，即代码的理解和分析难度
+    <rule ref="category/java/bestpractices.xml/LooseCoupling" />//4监测松散耦合,即组件之间的独立性和灵活性
+    <rule ref="category/java/design.xml/CouplingBetweenObjects" />//5监测对象之间的耦合程度,即类之间的依赖关系
+</ruleset>
