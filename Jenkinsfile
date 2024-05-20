@@ -8,7 +8,7 @@ pipeline {
         }
         stage('K8s') {
         steps {
-            sh 'kubectl set image deployments/hello-node container-name=teedy2024_manual'
+            sh 'kubectl set image deployments/hello-node teedy_manual01=teedy2024_manual'
             }
         }
     }
