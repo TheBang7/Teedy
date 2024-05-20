@@ -13,7 +13,9 @@ pipeline {
         }
         stage('K8s') {
             steps {
-                sh 'kubectl set image deployments/hello-node container-name=teedy_manual04'
+                sh 'kubectl expose deployment hello-node --type=LoadBalancer --port=8085'
+                sh 'minikube service hello-node'
+                sh 'kubectl set image deployments/hello-node docs=sismics/docs:latest'
             }
         }
     }
