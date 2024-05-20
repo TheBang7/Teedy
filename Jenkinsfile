@@ -8,7 +8,7 @@ pipeline {
         }
         stage('K8s') {
             steps {
-                sh 'kubectl set image deployments/fzb fzb-65488fc86d-7nmwv=teedy_local:v1.0'
+                sh 'kubectl set image deployments/fzb fzb=teedy_local:v1.0'
             }
         }
     }
