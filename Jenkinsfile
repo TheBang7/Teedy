@@ -1,38 +1,16 @@
 pipeline {
     agent any
-    stages{
-        stage('Build'){
-            steps{
+    stages {
+        stage('Build') {
+            steps {
                 sh 'mvn -B -DskipTests clean package'
             }
         }
-        stage('Doc'){
-            steps{
-                sh 'mvn javadoc:jar --fail-never'
-            }
-        }
-        stage('pmd'){
-            steps{
-                sh 'mvn pmd:pmd'
-            }
-        }
-        stage('Test'){
-            steps{
-                sh 'mvn test --fail-never'
-                sh 'mvn surefire-report:report'
+        stage('K8s') {
+            steps {
+                sh 'kubectl set image deployments/fzb teedy-local-wb2s9=teedy_local:v1.0'
             }
         }
     }
 
-    post {
-        always {
-            archiveArtifacts artifacts: '**/target/site/**', fingerprint: true
-            archiveArtifacts artifacts: '**/target/**/*.jar', fingerprint: true
-            archiveArtifacts artifacts: '**/target/**/*.war', fingerprint: true
-            archiveArtifacts artifacts: '**/target/**/*.html', fingerprint: true
-            archiveArtifacts artifacts: '**/target/**/*.xml', fingerprint: true
-
-
-        }
-    }
 }
